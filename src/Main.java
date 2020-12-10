@@ -5,16 +5,22 @@ public class Main {
     static Scanner line = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        Student Johny = new Student("Johny", 25, 12352323);
+        Student Dikky = new Student("Johny", 25, 31324013);
+        System.out.println();
 //        first();
 //        mod_F();
 //        arrys();
 //        line.close();
-        FunnyTaxi taxi = new FunnyTaxi();
-        for (int i = 0; i < 6; i++){
-            System.out.println(taxi.addPassager("name_"+i, "forname_"+i));
-        }
-    }
 
+        // Hier you check how much people can get in the car.
+//        FunnyTaxi taxi = new FunnyTaxi();
+//        for (int i = 0; i < 6; i++){
+//            System.out.println(taxi.addPassager("name_"+i, "forname_"+i));
+//        }
+    }
+    /*
     public static void mod_F(){
         Scanner scan = new Scanner(System.in);
         int i = scan.nextInt();
@@ -43,6 +49,7 @@ public class Main {
             System.out.println(elem + 1);
         }
     }
+    */
 }
 
 class Human{
@@ -62,12 +69,16 @@ class Human{
 }
 
 class FunnyTaxi{
-    int personIn = 1;
+
+    int personIn;
     String nameOfDriver;
     Human[] passagers = new Human[4];
 
-    FunnyTaxi(){}
+    FunnyTaxi(){
+        this.nameOfDriver = "Johny Blancko"; //default Taxi driver *)
+    }
     FunnyTaxi(String nameOfDriver){
+        personIn = 1;
         this.nameOfDriver = nameOfDriver;
     }
 
@@ -80,7 +91,7 @@ class FunnyTaxi{
             return "We are sorry, Lucky Fuke. The taxi is full.\n";
         }
         Human passager = new Human(name, forname);
-        passagers[personIn] = passager;
+        passagers[personIn - 1] = passager;
         this.personIn++;
         return "Lucky Fuke gets in.\n";
     }
@@ -89,7 +100,8 @@ class FunnyTaxi{
         this.personIn = 1;
         if (passagers.length != 0){
             return passagers;
-        }else
+        }
+        return passagers;
     }
 }
 
